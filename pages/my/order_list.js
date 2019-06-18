@@ -22,6 +22,7 @@ Page({
   },
   onLoad: function (options) {
     // 生命周期函数--监听页面加载
+   
   },
   onShow: function () {
     this.getPayOrder();
@@ -66,13 +67,14 @@ Page({
           return;
         }
         var pay_info = resp.data.pay_info;
+        app.alert({ "content": "支付成功" });
         wx.requestPayment({
           'timeStamp': pay_info.timeStamp,
           'nonceStr': pay_info.nonceStr,
           'package': pay_info.package,
           'signType': 'MD5',
           'paySign': pay_info.paySign,
-          'success': function (res) {
+          'success': function (res) { 
           },
           'fail': function (res) {
           }
@@ -84,6 +86,7 @@ Page({
     this.orderOps(e.currentTarget.dataset.id, "confirm", "确定收到？");
   },
   orderComment: function (e) {
+    app.console(e.currentTarget.dataset.id)
     wx.navigateTo({
       url: "/pages/my/comment?order_sn=" + e.currentTarget.dataset.id
     });

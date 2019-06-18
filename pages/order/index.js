@@ -26,8 +26,8 @@ Page({
     //wx.showLoading();
     
     var that = this;
-    app.alert({ "content": "个人小程序，不支持支付" });
-    /*
+//    app.alert({ "content": "个人小程序，不支持支付" });
+    
     var data = {
       type: this.data.params.type,
       goods: JSON.stringify(this.data.params.goods),
@@ -52,7 +52,7 @@ Page({
           url: "/pages/my/order_list"
         });
   }
-    });*/
+    });
 
   },
   addressSet: function () {

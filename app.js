@@ -7,7 +7,7 @@ App({
     version: "1.1.2",
     shopName: "微 信 点 餐",
     //sdomain:"http://192.168.0.119:8999/api",
-    domain: "http://119.23.56.12:5000/api"
+    domain: "http://0.0.0.0:5001/api"
   },
   tip: function (params) {
     var that = this;
