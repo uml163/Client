@@ -180,10 +180,13 @@ Page({
   },
   onShareAppMessage: function () {
     var that = this;
+    app.console(that.data.info.id)
     return {
       title: that.data.info.name,
       path: '/pages/food/info?id=' + that.data.info.id,
+      
       success: function (res) {
+        
         // 转发成功
         wx.request({
           url: app.buildUrl("/member/share"),
@@ -192,6 +195,7 @@ Page({
           data: {
             url: utils.getCurrentPageUrlWithArgs()
           },
+          
           success: function (res) {
 
           }
