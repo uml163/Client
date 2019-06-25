@@ -6,8 +6,9 @@ App({
     userInfo: null,
     version: "1.1.2",
     shopName: "微 信 点 餐",
-    //domain: "http://119.23.56.12:5000/api",
-    domain: "http://0.0.0.0:5001/api"
+    //domain: "http://119.23.56.12:5001/api",
+    //domain: "http://0.0.0.0:5001/api"
+    domain:"http://119.23.56.12:5000/api"
   },
   tip: function (params) {
     var that = this;

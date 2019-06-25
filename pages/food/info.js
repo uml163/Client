@@ -180,28 +180,38 @@ Page({
   },
   onShareAppMessage: function () {
     var that = this;
-    app.console(that.data.info.id)
+    
+    /*
+    //非服务器调试，启用以下代码实现分享次数计算
+    wx.request({
+      url: app.buildUrl("/member/share"),
+      header:app.getRequestHeader(),
+      method:'POST',
+      data: {
+        url:utils.getCurrentPageUrlWithArgs()
+      }
+    })
+    */
     return {
       title: that.data.info.name,
       path: '/pages/food/info?id=' + that.data.info.id,
-      
       success: function (res) {
-        
+        app.console("share")
         // 转发成功
         wx.request({
           url: app.buildUrl("/member/share"),
+          
           header: app.getRequestHeader(),
           method: 'POST',
           data: {
             url: utils.getCurrentPageUrlWithArgs()
           },
-          
           success: function (res) {
-
           }
         });
       },
       fail: function (res) {
+        app.console("share failed")
         // 转发失败
       }
     }

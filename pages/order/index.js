@@ -26,25 +26,30 @@ Page({
     //wx.showLoading();
     
     var that = this;
-//    app.alert({ "content": "个人小程序，不支持支付" });
+    app.console(that.data.id)
     
+  
+//    app.alert({ "content": "个人小程序，不支持支付" });
+    //app.alert({ "content": "请填写地址" });
     var data = {
       type: this.data.params.type,
       goods: JSON.stringify(this.data.params.goods),
       express_address_id: that.data.default_address.id
     };
-    
-  
-    wx.request({
-      
+    wx.request({     
       url: app.buildUrl("/order/create"),
       header: app.getRequestHeader(),
       method: 'POST',
       data: data,
+      fail:function(res){
+        app.alert({ "content": "请填写地址" });
+
+      },
       success: function (res) {
         wx.hideLoading();
         var resp = res.data;
         if (resp.code != 200) {
+          app.console(resp.data)
           app.alert({ "content": resp.msg });
           return;
         }

@@ -3,7 +3,7 @@
 var app = getApp();
 Page({
   data: {
-    "content": "好评",
+    "content": "",
     "score": 10,
     "order_sn": ""
   },

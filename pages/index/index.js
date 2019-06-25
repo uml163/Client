@@ -9,6 +9,13 @@ Page({
     userInfo: {},
     regFlag: true
   },
+  onPullDownRefresh:function(){
+    wx.showNavigationBarLoading()
+    setTimeout(function(){
+      wx.hideNavigationBarLoading()
+      wx.stopPullDownRefresh()
+    },1500);
+  },
   goToIndex: function () {
     wx.switchTab({
       url: '/pages/food/index',
