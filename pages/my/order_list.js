@@ -3,8 +3,8 @@ var app = getApp();
 Page({
   data: {
     order_list: [],
-    statusType: ["待付款", "待发货", "待确认", "待评价", "已完成", "已关闭"],
-    status: ["-8", "-7", "-6", "-5", "1", "0"],
+    statusType: ["待付款", "待评价", "已完成", "已关闭"],
+    status: ["-8", "-5", "1", "0"],
     currentType: 0,
     tabClass: ["", "", "", "", "", ""]
   },
@@ -68,6 +68,9 @@ Page({
         }
         var pay_info = resp.data.pay_info;
         app.alert({ "content": "支付成功" });
+        wx.navigateTo({
+          url: '/pages/my/order_list',
+        })
         wx.requestPayment({
           'timeStamp': pay_info.timeStamp,
           'nonceStr': pay_info.nonceStr,
